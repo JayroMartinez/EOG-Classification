@@ -10,17 +10,17 @@ import feature_extraction as feat
 if __name__ == '__main__':
 
 # MOSTRAMOS VENTANA PARA SELECCIONAR MODELO
-	model_name = '/home/pi/Desktop/Wheelchair-Project/models/patient2.sav'
+	model_name = '/Users/jayromartinez/Documents/GitHub/EOG-Classification/models/patient4.sav'
 # CARGAMOS EL MODELO
 	model = pickle.load(open(model_name, 'rb'))
 
 # MOSTRAMOS VENTANA PARA SELECCIONAR ARCHIVO ONLINE
-	file_name = '/home/pi/Desktop/Wheelchair-Project/data/patient2_online_data_1.txt'
+	file_name = '/Users/jayromartinez/Documents/GitHub/EOG-Classification/data/patient4_online_data_1.txt'
 # LEEMOS EL ARCHIVO
 	trial_hor, trial_ver = read_function.read_online_file(file_name)
 	
 # MOSTRAMOS VENTANA PARA SELECCIONAR ARCHIVO AUXILIAR
-	aux_file_name = '/home/pi/Desktop/Wheelchair-Project/data/patient2_simulated_online_aux_data_1.txt'
+	aux_file_name = '/Users/jayromartinez/Documents/GitHub/EOG-Classification/data/patient4_simulated_online_aux_data_1.txt'
 # ABRIMOS Y LEEMOS EL ARCHIVO
 	file = open(aux_file_name, 'r')
 	values = file.readlines()
