@@ -1,0 +1,78 @@
+
+['TO DO', 'Left', '16:23:27']
+['PREDICTED', 'Left', '16:23:29']
+
+['TO DO', 'Right', '16:23:32']
+['PREDICTED', 'Right', '16:23:32']
+['PREDICTED', 'Right', '16:23:35']
+['PREDICTED', 'Right', '16:23:36']
+['PREDICTED', 'Left', '16:23:36']
+
+['TO DO', 'Left', '16:23:38']
+['PREDICTED', 'Left', '16:23:42']
+
+['TO DO', 'Left', '16:23:44']
+['PREDICTED', 'Right', '16:23:44']
+['PREDICTED', 'Left', '16:23:44']
+['PREDICTED', 'Left', '16:23:46']
+['PREDICTED', 'Left', '16:23:46']
+['PREDICTED', 'Left', '16:23:47']
+
+['TO DO', 'Left', '16:23:50']
+['PREDICTED', 'Right', '16:23:50']
+['PREDICTED', 'Left', '16:23:51']
+['PREDICTED', 'Left', '16:23:52']
+['PREDICTED', 'Left', '16:23:53']
+
+['TO DO', 'Right', '16:23:56']
+['PREDICTED', 'Left', '16:23:56']
+['PREDICTED', 'Left', '16:23:56']
+['PREDICTED', 'Right', '16:23:58']
+['PREDICTED', 'Left', '16:23:59']
+['PREDICTED', 'Left', '16:24:0']
+
+['TO DO', 'Up', '16:24:2']
+['PREDICTED', 'Up', '16:24:4']
+
+['TO DO', 'Up', '16:24:7']
+['PREDICTED', 'Left', '16:24:7']
+['PREDICTED', 'Left', '16:24:8']
+['PREDICTED', 'Right', '16:24:9']
+['PREDICTED', 'Up', '16:24:10']
+['PREDICTED', 'Left', '16:24:10']
+['PREDICTED', 'Left', '16:24:11']
+
+['TO DO', 'Right', '16:24:13']
+['PREDICTED', 'Left', '16:24:14']
+['PREDICTED', 'Left', '16:24:14']
+['PREDICTED', 'Right', '16:24:15']
+['PREDICTED', 'Left', '16:24:16']
+
+['TO DO', 'Left', '16:24:19']
+['PREDICTED', 'Left', '16:24:22']
+
+['TO DO', 'Up', '16:24:25']
+['PREDICTED', 'Right', '16:24:26']
+['PREDICTED', 'Up', '16:24:27']
+
+['TO DO', 'Up', '16:24:31']
+['PREDICTED', 'Left', '16:24:32']
+
+['TO DO', 'Right', '16:24:37']
+['PREDICTED', 'Right', '16:24:39']
+['PREDICTED', 'Left', '16:24:40']
+['PREDICTED', 'Left', '16:24:40']
+
+['TO DO', 'Right', '16:24:42']
+['PREDICTED', 'Left', '16:24:42']
+['PREDICTED', 'Left', '16:24:43']
+['PREDICTED', 'Left', '16:24:44']
+['PREDICTED', 'Right', '16:24:45']
+['PREDICTED', 'Left', '16:24:46']
+
+['TO DO', 'Up', '16:24:48']
+['PREDICTED', 'Right', '16:24:49']
+['PREDICTED', 'Up', '16:24:51']
+['PREDICTED', 'Right', '16:24:52']
+
+['TO DO', 'beep', '16:24:54']

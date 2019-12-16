@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: OpenBCI-Python
+Version: 1.0.2
+Summary: A lib for controlling OpenBCI Devices
+Home-page: https://github.com/openbci/openbci_python
+Author: AJ Keller
+Author-email: pushtheworldllc@gmail.com
+License: MIT
+Download-URL: https://github.com/openbci/openbci_python/archive/v1.0.2.tar.gz
+Description: UNKNOWN
+Keywords: device,control,eeg,emg,ekg,ads1299,openbci,ganglion,cyton,wifi
+Platform: UNKNOWN

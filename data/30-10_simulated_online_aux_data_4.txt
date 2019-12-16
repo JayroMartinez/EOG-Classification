@@ -1,0 +1,17 @@
+
+['TO DO', 'Right', '10:49:9']
+['PREDICTED', 'Up', '10:49:12']
+
+['TO DO', 'Right', '10:49:15']
+['PREDICTED', 'Up', '10:49:18']
+
+['TO DO', 'Up', '10:49:20']
+['PREDICTED', 'Up', '10:49:24']
+
+['TO DO', 'Up', '10:49:26']
+['PREDICTED', 'Up', '10:49:29']
+
+['TO DO', 'Left', '10:49:32']
+['PREDICTED', 'Up', '10:49:35']
+
+['TO DO', 'Left', '10:49:37']
