@@ -57,4 +57,3 @@
 ['PREDICTED', 'Up', '16:23:16']
 
 ['TO DO', 'beep', '16:23:19']
-['PREDICTED', 'Right', '16:23:21']

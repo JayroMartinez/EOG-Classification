@@ -1,0 +1,62 @@
+
+['TO DO', 'Right', '11:20:27']
+['PREDICTED', 'Right', '11:20:30']
+
+['TO DO', 'Left', '11:20:33']
+['PREDICTED', 'Left', '11:20:35']
+
+['TO DO', 'Left', '11:20:38']
+['PREDICTED', 'Up', '11:20:41']
+
+['TO DO', 'Up', '11:20:44']
+['PREDICTED', 'Up', '11:20:46']
+
+['TO DO', 'Left', '11:20:50']
+['PREDICTED', 'Left', '11:20:52']
+
+['TO DO', 'Up', '11:20:55']
+['PREDICTED', 'Up', '11:20:58']
+
+['TO DO', 'Up', '11:21:1']
+['PREDICTED', 'Left', '11:21:3']
+
+['TO DO', 'Down', '11:21:6']
+['PREDICTED', 'Down', '11:21:9']
+
+['TO DO', 'Down', '11:21:12']
+['PREDICTED', 'Down', '11:21:14']
+
+['TO DO', 'Up', '11:21:18']
+['PREDICTED', 'Up', '11:21:20']
+
+['TO DO', 'Down', '11:21:24']
+['PREDICTED', 'Down', '11:21:26']
+
+['TO DO', 'Right', '11:21:29']
+['PREDICTED', 'Right', '11:21:32']
+
+['TO DO', 'Left', '11:21:35']
+['PREDICTED', 'Up', '11:21:37']
+
+['TO DO', 'Down', '11:21:40']
+['PREDICTED', 'Down', '11:21:42']
+
+['TO DO', 'Down', '11:21:46']
+['PREDICTED', 'Down', '11:21:48']
+
+['TO DO', 'Right', '11:21:52']
+['PREDICTED', 'Up', '11:21:54']
+
+['TO DO', 'Right', '11:21:57']
+['PREDICTED', 'Right', '11:22:0']
+
+['TO DO', 'Up', '11:22:3']
+['PREDICTED', 'Up', '11:22:5']
+
+['TO DO', 'Left', '11:22:8']
+['PREDICTED', 'Up', '11:22:11']
+
+['TO DO', 'Right', '11:22:14']
+['PREDICTED', 'Up', '11:22:16']
+
+['TO DO', 'beep', '11:22:19']
