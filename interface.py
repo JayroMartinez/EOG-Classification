@@ -203,13 +203,15 @@ class MainWindow:
 			features = feat.features(trial_hor, trial_ver)
 
 # Classification
-			classif.classification(features, trial_lab)
+#			classif.classification(features, trial_lab)
 			
 #			plots.feature3d_plot(features, trial_lab)
+#			plots.feature2d_plot(features, trial_lab)
 #			plots.trial_plot(trial_hor, trial_ver, trial_lab)
 #			plots.derivative_signal(trial_hor, trial_ver, trial_lab)
 #			plots.derivative_plots(trial_hor, trial_ver, trial_lab)
-#			plots.feature_plot(features, trial_lab)
+			plots.feature_plot(features, trial_lab)
+#			plots.movement_plot(trial_hor, trial_ver, trial_lab, "'Up'")
 			
 			saveRoot = tk.Tk()
 			saveRoot.withdraw()

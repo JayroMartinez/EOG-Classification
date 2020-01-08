@@ -35,7 +35,7 @@ def trial_plot(trial_hor, trial_ver, trial_lab):
 	plt.subplot(211)
 	plt.plot(range(0, len(ver)), ver)
 	plt.title(" Ver")
-#	plt.xticks(np.arange(250,len(ver)+250, step=samples_per_trial),trial_lab, rotation=45, fontsize = 8)
+	plt.xticks(np.arange(250,len(ver)+250, step=samples_per_trial),trial_lab, rotation=45, fontsize = 8)
 	
 	for j in range(0,len(ver), samples_per_trial):
 		plt.axvline(x=j, color='tab:gray', linestyle=':')
@@ -43,7 +43,7 @@ def trial_plot(trial_hor, trial_ver, trial_lab):
 	plt.subplot(212)
 	plt.plot(range(0, len(hor)), hor)
 	plt.title(" Hor")
-#	plt.xticks(np.arange(250,len(hor)+250, step=samples_per_trial),trial_lab, rotation=45, fontsize = 8)
+	plt.xticks(np.arange(250,len(hor)+250, step=samples_per_trial),trial_lab, rotation=45, fontsize = 8)
 	
 	for j in range(0,len(hor), samples_per_trial):
 		plt.axvline(x=j, color='tab:gray', linestyle=':')
@@ -97,23 +97,27 @@ def movement_plot(trial_hor, trial_ver, trial_lab, movement):
 	hor = []
 	ver = []
 
+	samples_per_trial = global_variables.get_samples_per_trial()
+
 	for i in range(0, len(trial_lab)):
 		if trial_lab[i] == movement:
 			for j in range(0, len(trial_hor[i])):
-				hor.append(trial_hor[i][j])
-				ver.append(trial_ver[i][j])
+				hor.append(trial_hor[i][j]/8)
+				ver.append(trial_ver[i][j]/8)
 
 	plt.subplot(211)
 	plt.plot(range(0, len(ver)), ver)
 	plt.title(movement+" Ver")
-	plt.xticks(np.arange(0,len(ver), step=samples_per_trial))
+#	plt.xticks(np.arange(250,len(hor)+250, step=samples_per_trial),movement, rotation=45, fontsize = 8)
+	plt.xticks(np.arange(0,len(hor), step=samples_per_trial),[], rotation=45, fontsize = 8)
 	for j in range(0,len(ver), samples_per_trial):
 		plt.axvline(x=j, color='tab:gray', linestyle=':')
 	
 	plt.subplot(212)
 	plt.plot(range(0, len(hor)), hor)
 	plt.title(movement+" Hor")
-	plt.xticks(np.arange(0,len(hor), step=samples_per_trial))
+#	plt.xticks(np.arange(250,len(hor)+250, step=samples_per_trial),movement, rotation=45, fontsize = 8)
+	plt.xticks(np.arange(0,len(hor), step=samples_per_trial),[], rotation=45, fontsize = 8)
 	
 	for j in range(0,len(hor), samples_per_trial):
 		plt.axvline(x=j, color='tab:gray', linestyle=':')
@@ -156,105 +160,80 @@ def feature_plot(feat, trial_lab):
 	right_ver_min_feat = []
 	right_ver_max_feat = []
 	right_ver_median_feat = []
-
-	none_hor_min_feat = []
-	none_hor_max_feat = []			
-	none_hor_median_feat = []	
-	none_ver_min_feat = []
-	none_ver_max_feat = []
-	none_ver_median_feat = []
-
-	blink_hor_min_feat = []
-	blink_hor_max_feat = []			
-	blink_hor_median_feat = []	
-	blink_ver_min_feat = []
-	blink_ver_max_feat = []
-	blink_ver_median_feat = []
-
-	close_hor_min_feat = []
-	close_hor_max_feat = []			
-	close_hor_median_feat = []	
-	close_ver_min_feat = []
-	close_ver_max_feat = []
-	close_ver_median_feat = []
 	
 	for iter in range(0, len(trial_lab)):
 		if trial_lab[iter] == "'Up'":
-			up_hor_min_feat.append(feat[iter][0])
-			up_hor_max_feat.append(feat[iter][1])			
-			up_hor_median_feat.append(feat[iter][2])			
-			up_ver_min_feat.append(feat[iter][3])
-			up_ver_max_feat.append(feat[iter][4])
-			up_ver_median_feat.append(feat[iter][5])
+			up_hor_min_feat.append(feat[iter][0]/8)
+			up_hor_max_feat.append(feat[iter][1]/8)			
+			up_hor_median_feat.append(feat[iter][2]/8)			
+			up_ver_min_feat.append(feat[iter][3]/8)
+			up_ver_max_feat.append(feat[iter][4]/8)
+			up_ver_median_feat.append(feat[iter][5]/8)
 		elif trial_lab[iter] == "'Down'":
-			down_hor_min_feat.append(feat[iter][0])
-			down_hor_max_feat.append(feat[iter][1])			
-			down_hor_median_feat.append(feat[iter][2])			
-			down_ver_min_feat.append(feat[iter][3])
-			down_ver_max_feat.append(feat[iter][4])
-			down_ver_median_feat.append(feat[iter][5])
+			down_hor_min_feat.append(feat[iter][0]/8)
+			down_hor_max_feat.append(feat[iter][1]/8)			
+			down_hor_median_feat.append(feat[iter][2]/8)			
+			down_ver_min_feat.append(feat[iter][3]/8)
+			down_ver_max_feat.append(feat[iter][4]/8)
+			down_ver_median_feat.append(feat[iter][5]/8)
 		elif trial_lab[iter] == "'Left'":
-			left_hor_min_feat.append(feat[iter][0])
-			left_hor_max_feat.append(feat[iter][1])			
-			left_hor_median_feat.append(feat[iter][2])			
-			left_ver_min_feat.append(feat[iter][3])
-			left_ver_max_feat.append(feat[iter][4])
-			left_ver_median_feat.append(feat[iter][5])
+			left_hor_min_feat.append(feat[iter][0]/8)
+			left_hor_max_feat.append(feat[iter][1]/8)			
+			left_hor_median_feat.append(feat[iter][2]/8)			
+			left_ver_min_feat.append(feat[iter][3]/8)
+			left_ver_max_feat.append(feat[iter][4]/8)
+			left_ver_median_feat.append(feat[iter][5]/8)
 		elif trial_lab[iter] == "'Right'":
-			right_hor_min_feat.append(feat[iter][0])
-			right_hor_max_feat.append(feat[iter][1])			
-			right_hor_median_feat.append(feat[iter][2])			
-			right_ver_min_feat.append(feat[iter][3])
-			right_ver_max_feat.append(feat[iter][4])
-			right_ver_median_feat.append(feat[iter][5])
-		elif trial_lab[iter] == "'None'" or trial_lab[iter] == "'No_Movement'":
-			none_hor_min_feat.append(feat[iter][0])
-			none_hor_max_feat.append(feat[iter][1])			
-			none_hor_median_feat.append(feat[iter][2])			
-			none_ver_min_feat.append(feat[iter][3])
-			none_ver_max_feat.append(feat[iter][4])
-			none_ver_median_feat.append(feat[iter][5])
-		elif trial_lab[iter] == "'Double_Blink'":
-			blink_hor_min_feat.append(feat[iter][0])
-			blink_hor_max_feat.append(feat[iter][1])			
-			blink_hor_median_feat.append(feat[iter][2])			
-			blink_ver_min_feat.append(feat[iter][3])
-			blink_ver_max_feat.append(feat[iter][4])
-			blink_ver_median_feat.append(feat[iter][5])
-		elif trial_lab[iter] == "'Close_Eyes'":
-			close_hor_min_feat.append(feat[iter][0])
-			close_hor_max_feat.append(feat[iter][1])			
-			close_hor_median_feat.append(feat[iter][2])			
-			close_ver_min_feat.append(feat[iter][3])
-			close_ver_max_feat.append(feat[iter][4])
-			close_ver_median_feat.append(feat[iter][5])
+			right_hor_min_feat.append(feat[iter][0]/8)
+			right_hor_max_feat.append(feat[iter][1]/8)			
+			right_hor_median_feat.append(feat[iter][2]/8)			
+			right_ver_min_feat.append(feat[iter][3]/8)
+			right_ver_max_feat.append(feat[iter][4]/8)
+			right_ver_median_feat.append(feat[iter][5]/8)
 
-	data_min = [up_hor_min_feat,down_hor_min_feat,left_hor_min_feat,right_hor_min_feat,none_hor_min_feat,blink_hor_min_feat,close_hor_min,up_ver_min_feat,down_ver_min_feat,left_ver_min_feat,right_ver_min_feat,none_ver_min_feat,blink_ver_min_feat,close_ver_min]
-	data_max = [up_hor_max_feat,down_hor_max_feat,left_hor_max_feat,right_hor_max_feat,none_hor_max_feat,blink_hor_max_feat,close_hor_max,up_ver_max_feat,down_ver_max_feat,left_ver_max_feat,right_ver_max_feat,none_ver_max_feat,blink_ver_max_feat,close_ver_max]
-	data_median = [up_hor_median_feat,down_hor_median_feat,left_hor_median_feat,right_hor_median_feat,none_hor_median_feat,blink_hor_median_feat,close_hor_median,up_ver_median_feat,down_ver_median_feat,left_ver_median_feat,right_ver_median_feat,none_ver_median_feat,blink_ver_median_feat,close_ver_median]
+	data_hor_min = [up_hor_min_feat,down_hor_min_feat,left_hor_min_feat,right_hor_min_feat]
+	data_hor_max = [up_hor_max_feat,down_hor_max_feat,left_hor_max_feat,right_hor_max_feat]
+	data_hor_median = [up_hor_median_feat,down_hor_median_feat,left_hor_median_feat,right_hor_median_feat]
 
-	plot_labels = ['Up Hor','Down Hor','Left Hor','Right Hor','None Hor', 'Blink Hor', 'Closed Hor', 'Up Ver','Down Ver','Left Ver','Right Ver','None Ver', 'Blink Ver', 'Closed Ver']
+	data_ver_min = [up_ver_min_feat,down_ver_min_feat,left_ver_min_feat,right_ver_min_feat]
+	data_ver_max = [up_ver_max_feat,down_ver_max_feat,left_ver_max_feat,right_ver_max_feat]
+	data_ver_median = [up_ver_median_feat,down_ver_median_feat,left_ver_median_feat,right_ver_median_feat]
 
-	plt.figure(1)
-	ax = plt.gca()
-	ticks = ax.get_xticklabels()
-	ax.boxplot(data_min)
-	ax.set_xticklabels(plot_labels, rotation = 45, fontsize = 8)
-	ax.set_title("Min")
+	plot_hor_labels = ['Up','Down','Left','Right']
+	plot_ver_labels = ['Up','Down','Left','Right']
+
+	fig = plt.figure()
+	ax1 = fig.add_subplot(231)
+	ax1.boxplot(data_hor_min)
+	ax1.set_xticklabels(plot_hor_labels)
+	ax1.set_ylabel('mV')
+	ax1.set_title('Horizontal Min')
 	
-	plt.figure(2)
-	ax = plt.gca()
-	ticks = ax.get_xticklabels()
-	ax.boxplot(data_max)
-	ax.set_xticklabels(plot_labels, rotation = 45, fontsize = 8)
-	ax.set_title("Max")
-
-	plt.figure(3)
-	ax = plt.gca()
-	ticks = ax.get_xticklabels()
-	ax.boxplot(data_median)
-	ax.set_xticklabels(plot_labels, rotation = 45, fontsize = 8)
-	ax.set_title("Median")
+	ax2 = fig.add_subplot(232)
+	ax2.boxplot(data_hor_max)
+	ax2.set_xticklabels(plot_hor_labels)
+	ax2.set_title('Horizontal Max')
+	
+	ax3 = fig.add_subplot(233)
+	ax3.boxplot(data_hor_median)
+	ax3.set_xticklabels(plot_hor_labels)
+	ax3.set_title('Horizontal Median')
+	
+	ax4 = fig.add_subplot(234)
+	ax4.boxplot(data_ver_min)
+	ax4.set_xticklabels(plot_hor_labels)
+	ax4.set_ylabel('mV')
+	ax4.set_title('Vertical Min')
+	
+	ax5 = fig.add_subplot(235)
+	ax5.boxplot(data_ver_max)
+	ax5.set_xticklabels(plot_hor_labels)
+	ax5.set_title('Vertical Max')
+	
+	ax6 = fig.add_subplot(236)
+	ax6.boxplot(data_ver_median)
+	ax6.set_xticklabels(plot_hor_labels)
+	ax6.set_title('Vertical Median')
 
 	plt.show()
 
@@ -297,27 +276,6 @@ def feature3d_plot(feat, trial_lab):
 	right_ver_min_feat = []
 	right_ver_max_feat = []
 	right_ver_median_feat = []
-
-	none_hor_min_feat = []
-	none_hor_max_feat = []		
-	none_hor_median_feat = []		
-	none_ver_min_feat = []
-	none_ver_max_feat = []
-	none_ver_median_feat = []
-
-	blink_hor_min_feat = []
-	blink_hor_max_feat = []			
-	blink_hor_median_feat = []	
-	blink_ver_min_feat = []
-	blink_ver_max_feat = []
-	blink_ver_median_feat = []
-
-	close_hor_min_feat = []
-	close_hor_max_feat = []			
-	close_hor_median_feat = []	
-	close_ver_min_feat = []
-	close_ver_max_feat = []
-	close_ver_median_feat = []
 	
 	for iter in range(0, len(trial_lab)):
 		if trial_lab[iter] == "'Up'":
@@ -348,27 +306,6 @@ def feature3d_plot(feat, trial_lab):
 			right_ver_min_feat.append(feat[iter][3])
 			right_ver_max_feat.append(feat[iter][4])
 			right_ver_median_feat.append(feat[iter][5])
-		elif trial_lab[iter] == "'None'" or trial_lab[iter] == "'No_Movement'":
-			none_hor_min_feat.append(feat[iter][0])
-			none_hor_max_feat.append(feat[iter][1])			
-			none_hor_median_feat.append(feat[iter][2])			
-			none_ver_min_feat.append(feat[iter][3])
-			none_ver_max_feat.append(feat[iter][4])
-			none_ver_median_feat.append(feat[iter][5])
-		elif trial_lab[iter] == "'Blink'":
-			blink_hor_min_feat.append(feat[iter][0])
-			blink_hor_max_feat.append(feat[iter][1])			
-			blink_hor_median_feat.append(feat[iter][2])			
-			blink_ver_min_feat.append(feat[iter][3])
-			blink_ver_max_feat.append(feat[iter][4])
-			blink_ver_median_feat.append(feat[iter][5])
-		elif trial_lab[iter] == "'Close_Eyes'":
-			close_hor_min_feat.append(feat[iter][0])
-			close_hor_max_feat.append(feat[iter][1])			
-			close_hor_median_feat.append(feat[iter][2])			
-			close_ver_min_feat.append(feat[iter][3])
-			close_ver_max_feat.append(feat[iter][4])
-			close_ver_median_feat.append(feat[iter][5])
 	
 	fig = plt.figure()
 	ax = fig.add_subplot(111, projection='3d')
@@ -376,9 +313,6 @@ def feature3d_plot(feat, trial_lab):
 	ax.scatter(down_hor_min_feat, down_hor_max_feat, down_hor_median_feat, color='g', label='Down')
 	ax.scatter(left_hor_min_feat, left_hor_max_feat, left_hor_median_feat, color='b', label='Left')
 	ax.scatter(right_hor_min_feat, right_hor_max_feat, right_hor_median_feat, color='y', label='Right')
-	ax.scatter(none_hor_min_feat, none_hor_max_feat, none_hor_median_feat, color='k', label='No Movement')
-	ax.scatter(blink_hor_min_feat, blink_hor_max_feat, blink_hor_median_feat, color='c', label='Blink')
-	ax.scatter(close_hor_min_feat, close_hor_max_feat, close_hor_median_feat, color='m', label='Closed')
 	ax.set_xlabel('Min')
 	ax.set_ylabel('Max')
 	ax.set_zlabel('Median')
@@ -390,9 +324,6 @@ def feature3d_plot(feat, trial_lab):
 	ax2.scatter(down_ver_min_feat, down_ver_max_feat, down_ver_median_feat, color='g', label='Down')
 	ax2.scatter(left_ver_min_feat, left_ver_max_feat, left_ver_median_feat, color='b', label='Left')
 	ax2.scatter(right_ver_min_feat, right_ver_max_feat, right_ver_median_feat, color='y', label='Right')
-	ax2.scatter(none_ver_min_feat, none_ver_max_feat, none_ver_median_feat, color='k', label='No Movement')
-	ax2.scatter(blink_ver_min_feat, blink_ver_max_feat, blink_ver_median_feat, color='c', label='Blink')
-	ax2.scatter(close_ver_min_feat, close_ver_max_feat, close_ver_median_feat, color='m', label='Closed')
 	ax2.set_xlabel('Min')
 	ax2.set_ylabel('Max')
 	ax2.set_zlabel('Median')
@@ -401,7 +332,122 @@ def feature3d_plot(feat, trial_lab):
 	plt.show()
 	
 	
+def feature2d_plot(feat, trial_lab):
+
+	up_hor_min_feat = []
+	up_hor_max_feat = []		
+	up_hor_median_feat = []		
+	up_ver_min_feat = []
+	up_ver_max_feat = []
+	up_ver_median_feat = []
 	
+	down_hor_min_feat = []
+	down_hor_max_feat	= []
+	down_hor_median_feat	= []		
+	down_ver_min_feat = []
+	down_ver_max_feat = []
+	down_ver_median_feat = []
+	
+	left_hor_min_feat = []
+	left_hor_max_feat = []
+	left_hor_median_feat	= []	
+	left_ver_min_feat = []
+	left_ver_max_feat = []
+	left_ver_median_feat = []
+	
+	right_hor_min_feat = []
+	right_hor_max_feat = []			
+	right_hor_median_feat = []	
+	right_ver_min_feat = []
+	right_ver_max_feat = []
+	right_ver_median_feat = []
+	
+	for iter in range(0, len(trial_lab)):
+		if trial_lab[iter] == "'Up'":
+			up_hor_min_feat.append(feat[iter][0]/8)
+			up_hor_max_feat.append(feat[iter][1]/8)			
+			up_hor_median_feat.append(feat[iter][2]/8)			
+			up_ver_min_feat.append(feat[iter][3]/8)
+			up_ver_max_feat.append(feat[iter][4]/8)
+			up_ver_median_feat.append(feat[iter][5]/8)
+		elif trial_lab[iter] == "'Down'":
+			down_hor_min_feat.append(feat[iter][0]/8)
+			down_hor_max_feat.append(feat[iter][1]/8)			
+			down_hor_median_feat.append(feat[iter][2]/8)			
+			down_ver_min_feat.append(feat[iter][3]/8)
+			down_ver_max_feat.append(feat[iter][4]/8)
+			down_ver_median_feat.append(feat[iter][5]/8)
+		elif trial_lab[iter] == "'Left'":
+			left_hor_min_feat.append(feat[iter][0]/8)
+			left_hor_max_feat.append(feat[iter][1]/8)			
+			left_hor_median_feat.append(feat[iter][2]/8)			
+			left_ver_min_feat.append(feat[iter][3]/8)
+			left_ver_max_feat.append(feat[iter][4]/8)
+			left_ver_median_feat.append(feat[iter][5]/8)
+		elif trial_lab[iter] == "'Right'":
+			right_hor_min_feat.append(feat[iter][0]/8)
+			right_hor_max_feat.append(feat[iter][1]/8)			
+			right_hor_median_feat.append(feat[iter][2]/8)			
+			right_ver_min_feat.append(feat[iter][3]/8)
+			right_ver_max_feat.append(feat[iter][4]/8)
+			right_ver_median_feat.append(feat[iter][5]/8)
+
+	fig = plt.figure()
+	ax1 = fig.add_subplot(231)
+	ax1.scatter(up_hor_min_feat, up_hor_max_feat, marker = ".", color='r', label='Up')
+	ax1.scatter(down_hor_min_feat, down_hor_max_feat, marker = "v", color='g', label='Down')
+	ax1.scatter(left_hor_min_feat, left_hor_max_feat, marker = "s", color='b', label='Left')
+	ax1.scatter(right_hor_min_feat, right_hor_max_feat, marker = "x", color='y', label='Right')
+	ax1.set_xlabel('Min (mV)')
+	ax1.set_ylabel('Max (mV)')
+	
+	ax2 = fig.add_subplot(232)
+	ax2.scatter(up_hor_max_feat, up_hor_median_feat, marker = ".", color='r', label='Up')
+	ax2.scatter(down_hor_max_feat, down_hor_median_feat, marker = "v", color='g', label='Down')
+	ax2.scatter(left_hor_max_feat, left_hor_median_feat, marker = "s", color='b', label='Left')
+	ax2.scatter(right_hor_max_feat, right_hor_median_feat, marker = "x", color='y', label='Right')
+	ax2.set_xlabel('Max (mV)')
+	ax2.set_ylabel('Median (mV)')
+	ax2.set_title('Horizontal')
+	
+	ax3 = fig.add_subplot(233)
+	ax3.scatter(up_hor_median_feat, up_hor_min_feat, marker = ".", color='r', label='Up')
+	ax3.scatter(down_hor_median_feat, down_hor_min_feat, marker = "v", color='g', label='Down')
+	ax3.scatter(left_hor_median_feat, left_hor_min_feat, marker = "s", color='b', label='Left')
+	ax3.scatter(right_hor_median_feat, right_hor_min_feat, marker = "x", color='y', label='Right')
+	ax3.set_xlabel('Median (mV)')
+	ax3.set_ylabel('Min (mV)')
+	ax3.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
+	
+	ax4 = fig.add_subplot(234)
+	ax4.scatter(up_ver_min_feat, up_ver_max_feat, marker = ".", color='r', label='Up')
+	ax4.scatter(down_ver_min_feat, down_ver_max_feat, marker = "v", color='g', label='Down')
+	ax4.scatter(left_ver_min_feat, left_ver_max_feat, marker = "s", color='b', label='Left')
+	ax4.scatter(right_ver_min_feat, right_ver_max_feat, marker = "x", color='y', label='Right')
+	ax4.set_xlabel('Min (mV)')
+	ax4.set_ylabel('Max (mV)')
+	
+	ax5 = fig.add_subplot(235)
+	ax5.scatter(up_ver_max_feat, up_ver_median_feat, marker = ".", color='r', label='Up')
+	ax5.scatter(down_ver_max_feat, down_ver_median_feat, marker = "v", color='g', label='Down')
+	ax5.scatter(left_ver_max_feat, left_ver_median_feat, marker = "s", color='b', label='Left')
+	ax5.scatter(right_ver_max_feat, right_ver_median_feat, marker = "x", color='y', label='Right')
+	ax5.set_xlabel('Max (mV)')
+	ax5.set_ylabel('Median (mV)')
+	ax5.set_title('Vertical')
+	
+	ax6 = fig.add_subplot(236)
+	ax6.scatter(up_ver_median_feat, up_ver_min_feat, marker = ".", color='r', label='Up')
+	ax6.scatter(down_ver_median_feat, down_ver_min_feat, marker = "v", color='g', label='Down')
+	ax6.scatter(left_ver_median_feat, left_ver_min_feat, marker = "s", color='b', label='Left')
+	ax6.scatter(right_ver_median_feat, right_ver_min_feat, marker = "x", color='y', label='Right')
+	ax6.set_xlabel('Median (mV)')
+	ax6.set_ylabel('Min (mV)')
+
+	plt.show()
+
+
+
 def old_feature_plot(feat, trial_lab, to_plot):
 	"""
 # FUNCTION:	 	feature_plot(feat, to_plot)
