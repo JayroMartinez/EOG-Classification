@@ -6,6 +6,7 @@ from scipy.signal import butter, lfilter
 import read_function
 import global_variables
 import feature_extraction as feat
+import plots
 
 if __name__ == '__main__':
 
@@ -15,10 +16,9 @@ if __name__ == '__main__':
 	model = pickle.load(open(model_name, 'rb'))
 
 # MOSTRAMOS VENTANA PARA SELECCIONAR ARCHIVO ONLINE
-	file_name = '/Users/jayromartinez/Documents/GitHub/EOG-Classification/data/patient4_online_data_1.txt'
+	file_name = '/Users/jayromartinez/Documents/GitHub/EOG-Classification/data/patient9_online_data_4.txt'
 # LEEMOS EL ARCHIVO
 	trial_hor, trial_ver = read_function.read_online_file(file_name)
-	
 # MOSTRAMOS VENTANA PARA SELECCIONAR ARCHIVO AUXILIAR
 	aux_file_name = '/Users/jayromartinez/Documents/GitHub/EOG-Classification/data/patient4_simulated_online_aux_data_1.txt'
 # ABRIMOS Y LEEMOS EL ARCHIVO
@@ -74,7 +74,8 @@ if __name__ == '__main__':
 		# Concatenate the results into ver and hor variables & labels
 		hor.append(hor_sm)
 		ver.append(ver_sm)
-	
+	# Plot Online Filtered Data
+	plots.trial_plot(hor, ver, [])
 	# Feature Extraction
 	features = []
 	features = feat.features(hor, ver)

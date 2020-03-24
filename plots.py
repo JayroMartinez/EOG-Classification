@@ -29,13 +29,14 @@ def trial_plot(trial_hor, trial_ver, trial_lab):
 	
 	for i in range(0, len(trial_hor)):
 		for j in range(0, len(trial_hor[i])):
-				hor.append(trial_hor[i][j])
-				ver.append(trial_ver[i][j])
+				hor.append(trial_hor[i][j]/8)
+				ver.append(trial_ver[i][j]/8)
 	
 	plt.subplot(211)
 	plt.plot(range(0, len(ver)), ver)
 	plt.title(" Ver")
 	plt.xticks(np.arange(250,len(ver)+250, step=samples_per_trial),trial_lab, rotation=45, fontsize = 8)
+	plt.ylabel('mV')
 	
 	for j in range(0,len(ver), samples_per_trial):
 		plt.axvline(x=j, color='tab:gray', linestyle=':')
@@ -44,6 +45,7 @@ def trial_plot(trial_hor, trial_ver, trial_lab):
 	plt.plot(range(0, len(hor)), hor)
 	plt.title(" Hor")
 	plt.xticks(np.arange(250,len(hor)+250, step=samples_per_trial),trial_lab, rotation=45, fontsize = 8)
+	plt.ylabel('mV')
 	
 	for j in range(0,len(hor), samples_per_trial):
 		plt.axvline(x=j, color='tab:gray', linestyle=':')
