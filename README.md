@@ -10,4 +10,4 @@ THE PROJECT IS DISCONTINUED. Of course you can use it, modify it and do whatever
 A deeper explanaition on the project concerning this code, take a look to the reference paper:
 [Martínez-Cerveró, J.; Ardali, M.K.; Jaramillo-Gonzalez, A.; Wu, S.; Tonin, A.; Birbaumer, N.; Chaudhary, U. Open Software/Hardware Platform for Human-Computer Interface Based on Electrooculography (EOG) Signal Classification. Sensors 2020, 20, 2443.](https://www.mdpi.com/1424-8220/20/9/2443#cite "Open Software/Hardware Platform for Human-Computer Interface Based on Electrooculography (EOG) Signal Classification").
 
-To run the system, execute *interface.py*. I know the code is tremendously messy and probably not written with the best practices. Aplologies for this, is my first approach to Python.
+To run the system, execute *interface.py*. I know the code is tremendously messy and probably not written with the best practices. Aplologies for this, is my first approach to Python. I have done my best.
