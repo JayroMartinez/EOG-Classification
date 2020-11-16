@@ -1,4 +1,4 @@
 # FILES AND FOLDERS TO BE IGNORED
-./data
+/data/*
 .DS*
 *.pyc
