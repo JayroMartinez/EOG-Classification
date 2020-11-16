@@ -1,3 +1,6 @@
+# HERE WE CREATE THE CONNECTION, ACQUIRE THE DATA AND PERFORM THE CALCULATIONS FOR THE ONLINE PARADIGM
+# AUTHOR: Jayro Martinez Cervero
+
 from openbci import cyton as board
 import time
 from datetime import datetime
@@ -28,11 +31,12 @@ cont = global_variables.get_cont()
 
 def custom_append(lst, item):
 	"""
-FUNCTION:		custom_append(self, item)
-INPUT:			The list where to append and the item to append
-OUTPUT:			None
-DESCRIPTION:	This function appends an element to a list removing the 
+# FUNCTION:		custom_append(self, item)
+# INPUT:		The list where to append and the item to append
+# OUTPUT:		None
+# DESCRIPTION:	This function appends an element to a list removing the 
 				elements that exceeds the maximum size
+# AUTHOR:		Jayro Martinez Cervero
 	"""
 
 	samples_per_trial = global_variables.get_samples_per_trial()
@@ -45,11 +49,12 @@ DESCRIPTION:	This function appends an element to a list removing the
 
 def connect():
 	"""
-FUNCTION:		connect()
-INPUT:			None
-OUTPUT:			Call to acquire(connection)
-DESCRIPTION:	Creates the connection with OpenBCI Cyton Board,
+# FUNCTION:		connect()
+# INPUT:		None
+# OUTPUT:		Call to acquire(connection)
+# DESCRIPTION:	Creates the connection with OpenBCI Cyton Board,
 				sets the configuration & calls to acquire function
+# AUTHOR:		Jayro Martinez Cervero
 	"""
 	
 # CONNECTION PARAMETERS
@@ -110,18 +115,26 @@ def acquire(connection):
 # INPUT: 		connection object
 # OUTPUT: 		Loop over handle_streamed_data
 # DESCRIPTION:	Streams the data from Cyton Board
+# AUTHOR:		Jayro Martinez Cervero
 	"""
 
 	#print("Dongle Connected with board")   
 	time.sleep(1)
 	#print("Dongle streaming started...")
 
-	#connection.print_register_settings()  
 	connection.start_streaming(handle_streamed_data)
 	connection.loop()
 
 
 def online_calculations(online_data_hor, online_data_ver):
+	"""
+# FUNCTION:	 	online_calculations(online_data_hor, online_data_ver)
+# INPUT: 		Horizontal and Vertical data
+# OUTPUT: 		None
+# DESCRIPTION:	Performs all the desired calculations over the data 
+#				and predicts the label
+# AUTHOR:		Jayro Martinez Cervero
+	"""
 
 	samples_per_trial = global_variables.get_samples_per_trial()
 	lab = global_variables.get_lab()
@@ -165,6 +178,7 @@ def handle_streamed_data(sample):
 # OUTPUT: 		None
 # DESCRIPTION:	Reads the data and saves it on a .txt file,
 #				also plays audio files with actions when its necessary
+# AUTHOR:		Jayro Martinez Cervero
 	"""
 
 	global online_data_hor,online_data_ver, cont
@@ -199,6 +213,7 @@ def online_classif():
 # OUTPUT: 		None
 # DESCRIPTION:	This function acquires, pre-processes and extracts the features of the data in real time
 #				and gives us the predicted label using the model previously trained
+# AUTHOR:		Jayro Martinez Cervero
 	"""	
 	global play_labels, play_times
 	

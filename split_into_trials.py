@@ -1,3 +1,6 @@
+# HERE WE SPLIT THE DATA IN TRIALS AND PERFORM A STANDARDIZATION
+# AUTHOR: Jayro Martinez Cervero
+
 import numpy as np
 
 import global_variables
@@ -12,15 +15,16 @@ def to_trials(hor, ver, lab):
 #				& length of each trial. For old datasets also removes the actions 
 #				that we don't want to use in our system. After that it's doing 
 #				standarization over each sample
+# AUTHOR: 		Jayro Martinez Cervero
 	"""
 
 	samples_per_trial = global_variables.get_samples_per_trial()
 
 # Split intro trials
-	split_indx = range(samples_per_trial, len(lab), samples_per_trial)
-	trial_hor = np.split(hor, split_indx)
-	trial_ver = np.split(ver, split_indx)
-	trial_lab = np.split(lab, split_indx)
+	split_indx 	= range(samples_per_trial, len(lab), samples_per_trial)
+	trial_hor 	= np.split(hor, split_indx)
+	trial_ver 	= np.split(ver, split_indx)
+	trial_lab 	= np.split(lab, split_indx)
 
 # Remove 'beep' trials
 

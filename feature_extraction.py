@@ -1,3 +1,6 @@
+#	HERE WE CALCULATE THE FEATURES FOR THE DATA
+#	AUTHOR: Jayro Martinez Cervero
+
 import numpy as np
 from scipy import stats
 
@@ -10,6 +13,7 @@ def features(trial_hor, trial_ver):
 # OUTPUT: 		Matrix with feature values of horizontal & vertical
 #				components of each trial
 # DESCRIPTION:	Extracts the features for each trial
+# AUTHOR:		Jayro Martinez-Cervero
 	"""
 
 	num_feat = 6

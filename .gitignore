@@ -1,3 +1,2 @@
-/_pycache_
-*.py~
-*.pyc
+# FILES AND FOLDERS TO BE IGNORED
+/data

@@ -1,3 +1,6 @@
+#	HERE WE DEFINE THE FILTERS FOR THE OFFLINE AND ONLINE PIPELINES
+#	AUTHOR: Jayro Martinez Cervero
+
 import numpy as np
 from scipy import signal
 from scipy.signal import butter, lfilter
@@ -15,6 +18,7 @@ def filter():
 #				and a list containing the label of each trial
 # DESCRIPTION:	Applies a Butterworth filter and a smoothing filter over the data
 #				in each file. Then calls to_trials() to standardize and split into trials
+# AUTHOR:		Jayro Martinez-Cervero
 	"""
 
 	lowcut 				= global_variables.get_lowcut()
@@ -80,59 +84,6 @@ def filter():
 	return hor, ver, lab
 
 
-def original_filter():
-	"""
-# FUNCTION:	 	filter()
-# INPUT: 		None
-# OUTPUT: 		Vertical & horizontal components of the data divided by trials
-#				and a list containing the label of each trial
-# DESCRIPTION:	Applies a Butterworth filter and a smoothing filter over the data
-#				in each file. Then calls to_trials() to standardize and split into trials
-#	"""
-
-	lowcut 				= global_variables.get_lowcut()
-	highcut 			= global_variables.get_highcut()
-	fs 					= global_variables.get_sample_rate()
-	order 				= global_variables.get_order()
-	samples_per_trial 	= global_variables.get_samples_per_trial()
-	files 				= global_variables.get_files_to_process()
-
-	hor_tmp 	= []
-	ver_tmp 	= []
-	labels_tmp 	= []
-	hor_bnd 	= []
-	ver_bnd 	= []
-	hor_sm 		= []
-	ver_sm 		= []
-# Arrays with horizontal and vertical components & labels of each sample
-	hor = []
-	ver = []
-	lab = []
-
-	print("\nStart filtering. \n\n      Cut Frequency: ", highcut, "\n      Order: ", order)
-
-# Read file by file
-	for file_name in files:
-		hor_tmp, ver_tmp, labels_tmp = read.read_file(file_name)
-		
-# Butterworth lowpass filter file by file
-		sos = signal.butter(order, highcut, 'lowpass', analog=False, output='sos', fs=fs)
-		hor_bnd = signal.sosfilt(sos, hor_tmp)
-		ver_bnd = signal.sosfilt(sos, ver_tmp)
-
-# Smoothing filter file by file
-		hor_sm = signal.medfilt(hor_bnd, kernel_size = 35)
-		ver_sm = signal.medfilt(ver_bnd, kernel_size = 35)
-# Concatenate results into ver and hor variables & labels
-		hor.extend(hor_sm)
-		ver.extend(ver_sm)
-		lab.extend(labels_tmp)
-
-# Split all data into trials & standardize over trials
-	trial_hor, trial_ver, trial_lab = tri.to_trials(hor, ver, lab)
-	return trial_hor, trial_ver, trial_lab
-
-
 def online_filter(data):
 	"""
 # FUNCTION:	 	online_filter(data)
@@ -140,6 +91,7 @@ def online_filter(data):
 # OUTPUT: 		Vertical & horizontal components of the online data already filtered
 # DESCRIPTION:	Applies a Butterworth filter and a smoothing filter over the data
 #				in each file. Then calls to_trials() to standardize and split into trials
+# AUTHOR:		Jayro Martinez-Cervero
 	"""
 
 	lowcut 		= global_variables.get_lowcut()

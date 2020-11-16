@@ -1,3 +1,6 @@
+# HERE WE HAVE THE TERMINAL INTERFACE
+# AUTHOR: Jayro Martinez Cervero
+
 import time
 from datetime import datetime
 import pickle
@@ -6,11 +9,11 @@ import os
 from natsort import natsorted
 import glob
 
-import connect_acquire_store as con
-import filter_files as filt
-import feature_extraction as feat
-import svm_classification as classif
-import online_classification as online
+import connect_acquire_store 	as con
+import filter_files 			as filt
+import feature_extraction 		as feat
+import svm_classification 		as classif
+import online_classification 	as online
 import plots
 import global_variables
 
@@ -22,7 +25,7 @@ def menu():
 	print("*******************************************************")
 	print("*******************************************************")
 	print("*********                                     *********")
-	print("***   WELCOME TO OUR FANTASTIC WHEELCHAIR PROGRAM   ***")
+	print("***       WELCOME TO OUR FANTASTIC EOG PROGRAM      ***")
 	print("*********                                     *********")
 	print("*******************************************************")
 	print("*******************************************************")
@@ -97,9 +100,6 @@ def menu():
 		# Feature Extraction
 		features = []
 		features = feat.features(trial_hor, trial_ver)
-
-		#plots.trial_plot(trial_hor, trial_ver)
-		#plots.feature_plot(features, trial_lab, "Derivative Slope")
 
 		print("\nPre-processing & Feature extraction done. Now we are going to perform classification.")
 		

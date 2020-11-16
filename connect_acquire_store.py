@@ -1,3 +1,6 @@
+#	HERE WE CREATE THE CONNECTION WITH THE OPENBCI DEVICE AND WE HANDLE THE ACQUIRED DATA
+#	AUTHOR: Jayro Martinez Cervero
+
 from openbci import cyton as board
 import time
 import random
@@ -8,7 +11,7 @@ import platform
 from multiprocessing import Process
 
 import global_variables
-from wheelchair import menu
+from terminal_menu import menu
 
 global iter, cont, connection
 
@@ -18,11 +21,12 @@ cont = global_variables.get_cont()
 
 def connect():
 	"""
-FUNCTION:		connect()
-INPUT:			None
-OUTPUT:			Call to acquire_save(connect)
-DESCRIPTION:	Creates the connection with OpenBCI Cyton Board
+# FUNCTION:		connect()
+# INPUT:		None
+# OUTPUT:		Call to acquire_save(connect)
+# DESCRIPTION:	Creates the connection with OpenBCI Cyton Board
 				and sets the configuration
+# AUTHOR:		Jayro Martinez-Cervero
 	"""
 
 	global connection
@@ -85,6 +89,7 @@ def acquire_save():
 # INPUT: 		connection object
 # OUTPUT: 		Loop over handle_streamed_data
 # DESCRIPTION:	Streams the data from Cyton Board
+# AUTHOR:		Jayro Martinez-Cervero
 	"""
 
 	global connection
@@ -104,20 +109,35 @@ def acquire_save():
 
 
 def stop_disconnect():
+	"""
+# FUNCTION:	 	stop_disconnect(connection)
+# INPUT: 		connection object
+# OUTPUT: 		None
+# DESCRIPTION:	Stops the stream and disconnects the device
+# AUTHOR:		Jayro Martinez-Cervero
+	"""
 
 	global connection
 
 	connection.stop()
 	connection.disconnect()
 	
-def play_sound(label):
+
+def play_sound(label): # FOR SOME REASON I DON'T REMEMBER, THIS FUNCTION IS NOT USED
+	"""
+# FUNCTION:	 	play_sound(label)
+# INPUT: 		String with the movement label
+# OUTPUT: 		None
+# DESCRIPTION:	Reproduces the audio files
+# AUTHOR:		Jayro Martinez-Cervero
+	"""
+
 	audio = AudioSegment.from_mp3("./audio/"+label+".mp3")
 	play(audio)
 	if label != 'beep':
 				beep = AudioSegment.from_mp3("./audio/beep.mp3")
 				play(beep)
-	#beep = AudioSegment.from_mp3("./audio/beep.mp3")
-	#play(beep)
+
 
 def handle_streamed_data(sample):
 	"""
@@ -126,6 +146,7 @@ def handle_streamed_data(sample):
 # OUTPUT: 		None
 # DESCRIPTION:	Reads the data and saves it on a .txt file,
 #				also plays audio files with actions when its necessary
+# AUTHOR:		Jayro Martinez-Cervero
 	"""
 
 	labels = global_variables.get_labels()
@@ -139,9 +160,9 @@ def handle_streamed_data(sample):
 	# Open file were we are going to save the data
 	file = open(filename, 'a')
 
-	if cont == 0:
+	if cont == 0:	# FIRST SAMPLE IN A TRIAL
 
-		if tmp_lab == 'EXIT':
+		if tmp_lab == 'EXIT': # BLOCK FINISHED
 			file.close()
 			print("**********************************")
 			print("**********************************")
@@ -157,9 +178,6 @@ def handle_streamed_data(sample):
 			else:
 				stop_disconnect()
 		else:
-			#play_process = Process(target=play_sound, args=(tmp_lab,))
-			#play_process.start()
-			#play_process.join()
 			audio = AudioSegment.from_mp3("./audio/"+tmp_lab+".mp3")
 			play(audio)
 			if tmp_lab != 'beep':
@@ -179,7 +197,8 @@ def handle_streamed_data(sample):
 		str_chn_dta =  ' '.join([str(sample.channel_data)])
 		file.write(str_chn_dta)
 		file.write('\n')
-	else:
+	
+	else:	# LAST SAMPLE IN A TRIAL
 		cont = 0
 		iter += 1
 		sample.channel_data.insert(0,tmp_lab)

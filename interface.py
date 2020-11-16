@@ -1,3 +1,6 @@
+#	HERE WE CREATE THE GRAPHICAL INTERFACE WITH THE APPROPIATE CALL TO THE PIPELINE FUNCTIONS
+#	AUTHOR: Jayro Martinez Cervero
+
 import tkinter as tk
 import tkinter.filedialog as tkfiledialog
 import time
@@ -13,11 +16,9 @@ matplotlib.use('TkAgg')
 
 import global_variables
 import plots
-import online_pipeline
 
 class OnlineClassification:
-	def __init__(self, master):
-		
+	def __init__(self, master):	# CREATES THE ONLINE CLASSIFICATION GUI WINDOW
 		self.master = master
 		self.master.withdraw()
 		self.onlineWdw = tk.Toplevel()
@@ -27,8 +28,7 @@ class OnlineClassification:
 		self.btnOnline.pack()
 		self.onlineWdw.mainloop()
 
-	def btnOnlinePushed(self):
-		
+	def btnOnlinePushed(self):	# CALLS TO ONLINE CLASSIFICATION
 		import online_classification as online
 		from multiprocessing import Process
 		import pseudo_online as pseudo
@@ -39,8 +39,7 @@ class OnlineClassification:
 			global_variables.set_online_started(True)
 			global_variables.set_cont(0)
 			print("STARTED")
-#			self.new_process = Process(target=online.online_classif())
-			self.new_process = Process(target=pseudo.pseudo_onl())
+			self.new_process = Process(target=online.online_classif())
 			self.new_process.start()
 			
 		else:
@@ -50,7 +49,7 @@ class OnlineClassification:
 
 
 class SaveWindow:
-	def __init__(self, master):
+	def __init__(self, master):	# CREATES THE SAVE MODEL GUI WINDOW
 		
 		self.master = master
 		self.save_wdw = tk.Toplevel()
@@ -65,7 +64,7 @@ class SaveWindow:
 		self.save_wdw.mainloop()
 
 
-	def btnSaveModelPushed(self, model_name):
+	def btnSaveModelPushed(self, model_name):	# SAVES THE MODEL
 
 		import global_variables
 
@@ -79,7 +78,7 @@ class SaveWindow:
 
 
 class AcquireNewFile:
-	def __init__(self, master):
+	def __init__(self, master):	# CREATES THE ACQUISITION GUI WINDOW
 		
 		self.master = master
 		self.top = tk.Toplevel()
@@ -94,7 +93,7 @@ class AcquireNewFile:
 		self.top.mainloop()
 
 
-	def btnSaveDataPushed(self, file_name):
+	def btnSaveDataPushed(self, file_name):	# CALLS TO CONNECTION FUNCTION AND SETS THE SAVING PARAMETERS
 		
 		import global_variables
 		import connect_acquire_store as con
@@ -109,7 +108,7 @@ class AcquireNewFile:
 
 
 class AcquireOldFile:
-	def __init__(self, master):
+	def __init__(self, master):	# CALLS TO CONNECTION FUNCTION AND SETS THE SAVING PARAMETERS
 		
 		import global_variables
 		import connect_acquire_store as con
@@ -125,7 +124,7 @@ class AcquireOldFile:
 
 
 class AcquireWindow:
-	def __init__(self, master):
+	def __init__(self, master):	# CREATES THE ACQUISITION GUI WINDOW
 
 		self.master = master
 		self.top = tk.Toplevel(self.master)
@@ -138,23 +137,23 @@ class AcquireWindow:
 		self.btnOldData.pack()
 
 
-	def acquireNewFile(self):
+	def acquireNewFile(self):	# CALLS TO ACQUISITION FUNCTION
 		
 		newFileWdw = AcquireNewFile(self)
 		
 
-	def acquireOldFile(self):
+	def acquireOldFile(self):	# CALLS TO ACQUISITION FUNCTION
 
 		oldFileWdw = AcquireOldFile(self)
 
 
 
 class MainWindow:
-	def __init__(self, master):
+	def __init__(self, master):	# CREATES THE MAIN GUI WINDOW
 	
 		self.master = master
 		self.frame = tk.Frame(self.master)
-		self.master.title("EOG Wheelchair Project")
+		self.master.title("EOG Project")
 		self.btnAcquire = tk.Button(self.master, text='Acquire New Data', command = self.btnAcquirePushed)
 		self.btnPreprocess = tk.Button(self.master, text='Process, Extract Features & Classify', command = self.btnPreprocessPushed)
 		self.btnOnline = tk.Button(self.master, text='Online Classification', command = self.btnOnlinePushed)
@@ -167,13 +166,13 @@ class MainWindow:
 		self.frame.pack()
 
 
-	def btnAcquirePushed(self):
+	def btnAcquirePushed(self):	# CALLS TO ACQUISITION WINDOW
 		
 		acquire = AcquireWindow(self.master)
 		self.master.mainloop()
 
 
-	def btnPreprocessPushed(self):
+	def btnPreprocessPushed(self):	# ASKS FOR THE DATA TO BE PROCESSED AND CALLS TO THE PIPELINE FUNCTIONS
 		
 		import global_variables
 		import filter_files as filt
@@ -193,8 +192,6 @@ class MainWindow:
 			global_variables.set_files_to_process(files_to_process)
 			mainRoot.destroy()
 
-#			online_pipeline.pipeline()
-
 # Processing
 			trial_hor, trial_ver, trial_lab = filt.filter()
 			
@@ -204,10 +201,12 @@ class MainWindow:
 
 # Classification
 			classif.classification(features, trial_lab)
-			
+
+#	PLOTTING FUNCTIONS (FOR TESTING PURPOSES)
+
 #			plots.feature3d_plot(features, trial_lab)
 #			plots.feature2d_plot(features, trial_lab)
-			plots.trial_plot(trial_hor, trial_ver, trial_lab)
+#			plots.trial_plot(trial_hor, trial_ver, trial_lab)
 #			plots.derivative_signal(trial_hor, trial_ver, trial_lab)
 #			plots.derivative_plots(trial_hor, trial_ver, trial_lab)
 #			plots.feature_plot(features, trial_lab)
@@ -221,7 +220,7 @@ class MainWindow:
 			
 
 
-	def btnOnlinePushed(self):
+	def btnOnlinePushed(self):	# CALLS TO ONLINE PROCESSING PIPELINE
 
 		import global_variables
 		

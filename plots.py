@@ -1,3 +1,6 @@
+# HERE WE HAVE SOME PLOTTING FUNCTIONS
+# AUTHOR: Jayro Martinez Cervero
+
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.collections import LineCollection
@@ -20,6 +23,7 @@ def trial_plot(trial_hor, trial_ver, trial_lab):
 # DESCRIPTION:	Generate the plots for horizontal and vertical values and
 #				shows the division over samples
 # TODO:			Add labels or colors based on labels
+# AUTHOR: 		Jayro Martinez Cervero
 	"""
 
 	hor = []
@@ -53,6 +57,14 @@ def trial_plot(trial_hor, trial_ver, trial_lab):
 
 
 def derivative_signal(trial_hor, trial_ver, trial_lab):
+"""
+# FUNCTION:	 	derivative_signal(trial_hor, trial_ver, trial_lab)
+# INPUT: 		Horizontal & Vertical components of each trial and its labels
+# OUTPUT: 		Lineplot
+# DESCRIPTION:	Generate the plots for horizontal and vertical derivative
+#				values and shows the division over samples
+# AUTHOR: 		Jayro Martinez Cervero
+	"""
 
 	der_hor = []
 	der_ver = []
@@ -94,6 +106,7 @@ def movement_plot(trial_hor, trial_ver, trial_lab, movement):
 # OUTPUT: 		Lineplot
 # DESCRIPTION:	Generate the plots for horizontal and vertical values and
 #				shows the division over samples corresponding to the desired movement
+# AUTHOR: 		Jayro Martinez Cervero
 	"""
 
 	hor = []
@@ -133,6 +146,7 @@ def feature_plot(feat, trial_lab):
 # OUTPUT: 		Boxplot
 # DESCRIPTION:	Creates a boxplot with a box for all values of the desired feature
 #				splited into movements and horizontal & vertical components
+# AUTHOR:		Jayro Martinez Cervero
 	"""
 	
 	up_hor_min_feat = []
@@ -243,12 +257,12 @@ def feature_plot(feat, trial_lab):
 
 def feature3d_plot(feat, trial_lab):
 	"""
-# FUNCTION:	 	feature_plot(feat, to_plot)
+# FUNCTION:	 	feature3d_plot(feat, to_plot)
 # INPUT: 		Matrix with the features, array with sample labels and 
 #				the name of the feature to plot
-# OUTPUT: 		Boxplot
-# DESCRIPTION:	Creates a boxplot with a box for all values of the desired feature
-#				splited into movements and horizontal & vertical components
+# OUTPUT: 		3d plot
+# DESCRIPTION:	Creates a 3d plot with for all values of the desired feature
+# AUTHOR:		Jayro Martinez Cervero
 	"""
 	
 	up_hor_min_feat = []
@@ -335,6 +349,14 @@ def feature3d_plot(feat, trial_lab):
 	
 	
 def feature2d_plot(feat, trial_lab):
+	"""
+# FUNCTION:	 	feature2d_plot(feat, to_plot)
+# INPUT: 		Matrix with the features, array with sample labels and 
+#				the name of the feature to plot
+# OUTPUT: 		2d plot
+# DESCRIPTION:	Creates a 2d plot with for all values of the desired feature
+# AUTHOR:		Jayro Martinez Cervero
+	"""
 
 	up_hor_min_feat = []
 	up_hor_max_feat = []		
@@ -447,60 +469,16 @@ def feature2d_plot(feat, trial_lab):
 	ax6.set_ylabel('Min (mV)')
 
 	plt.show()
-
-
-
-def old_feature_plot(feat, trial_lab, to_plot):
-	"""
-# FUNCTION:	 	feature_plot(feat, to_plot)
-# INPUT: 		Matrix with the features, array with sample labels and 
-#				the name of the feature to plot
-# OUTPUT: 		Boxplot
-# DESCRIPTION:	Creates a boxplot with a box for all values of the desired feature
-#				splited into movements and horizontal & vertical components
-	"""
-	
-	feature_list = ["Min","Max","Median","Mode","Kurtosis","Max_position","Min_position","AUC","First_q","Third_q","Interquartile", "Derivative Slope"]
-	feature_index = feature_list.index(to_plot)
-
-	up_ver_feat = []
-	down_ver_feat = []
-	left_ver_feat = []
-	right_ver_feat = []
-
-	up_hor_feat = []
-	down_hor_feat = []
-	left_hor_feat = []
-	right_hor_feat = []
-
-	for iter in range(0, len(trial_lab)):
-		if trial_lab[iter] == "'Up'":
-			up_hor_feat.append(feat[iter][2*feature_index])
-			up_ver_feat.append(feat[iter][2*feature_index+1])
-		elif trial_lab[iter] == "'Down'":
-			down_hor_feat.append(feat[iter][2*feature_index])
-			down_ver_feat.append(feat[iter][2*feature_index+1])
-		elif trial_lab[iter] == "'Left'":
-			left_hor_feat.append(feat[iter][2*feature_index])
-			left_ver_feat.append(feat[iter][2*feature_index+1])
-		elif trial_lab[iter] == "'Right'":
-			right_hor_feat.append(feat[iter][2*feature_index])
-			right_ver_feat.append(feat[iter][2*feature_index+1])
-
-	data = [up_hor_feat,down_hor_feat,left_hor_feat,right_hor_feat,up_ver_feat,down_ver_feat,left_ver_feat,right_ver_feat]
-
-	fig, ax = plt.subplots()
-
-	plot_labels = ["Up Hor","Down Hor","Left Hor","Right Hor","Up Ver","Down Ver","Left Ver","Right Ver"]
-	ax.set_xticklabels(plot_labels)
-	ax.set_title(to_plot)
-	#plt.yticks(np.arange(-1,1))
-
-	ax.boxplot(data)
-	plt.show()
 	
 
 def derivative_plots(trial_hor, trial_ver, trial_lab):
+	"""
+# FUNCTION:	 	derivative_plots(trial_hor, trial_ver, trial_lab)
+# INPUT: 		Horizontal & Vertical components of each trial and its labels
+# OUTPUT: 		Multiple dot plots
+# DESCRIPTION:	Generate the plots for horizontal and vertical derivative features
+# AUTHOR: 		Jayro Martinez Cervero
+	"""
 
 	up_hor_amp = []
 	up_ver_amp = []

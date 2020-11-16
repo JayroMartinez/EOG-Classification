@@ -72,77 +72,58 @@ online_aux_file = []
 def get_lab(): return lab
 
 
-
 def get_save_file(): return save_file
-
 
 
 def get_files_to_process(): return files_to_process
 
 
-
 def get_sample_rate(): return sample_rate
-
 
 
 def get_trial_lenght(): return trial_lenght
 
 
-
 def get_samples_per_trial(): return samples_per_trial
-
 
 
 def get_evaluation_time(): return evaluation_time
 
 
-
 def get_samples_per_action(): return samples_per_action
-
 
 
 def get_labels(): return labels
 
 
-
 def get_iter(): return iter
-
 
 
 def get_cont(): return cont
 
 
-
 def get_lowcut(): return lowcut
-
 
 
 def get_highcut(): return highcut
 
 
-
 def get_order(): return order
-
 
 
 def get_model(): return model
 
 
-
 def get_interface(): return interface
-
 
 
 def get_online_started(): return online_started
 
 
-
 def get_online_data_file(): return online_data_file
 
 
-
 def get_online_aux_file(): return online_aux_file
-
 
 
 ####################################################################
@@ -157,12 +138,10 @@ def set_model(mod):
 	model = mod
 
 
-
 def set_save_file(filename): 
 	global save_file 
 
 	save_file = filename
-
 
 
 def set_files_to_process(files): 
@@ -171,12 +150,10 @@ def set_files_to_process(files):
 	files_to_process = files
 
 
-
 def set_cont(con): 
 	global cont
 
 	cont = con
-
 
 
 def set_iter(it): 
@@ -185,19 +162,16 @@ def set_iter(it):
 	iter = it
 
 
-
 def set_interface(inter):
 	global interface
 
 	interface = inter
 
 
-
 def set_online_started(online):
 	global online_started
 
 	online_started = online
-
 
 
 def set_online_data_file(filename):
@@ -231,7 +205,7 @@ def reset_labels():
 
 
 ####################################################################
-# FUNCTIONS AND VARIABLES FOR FAKE ONLINE DATA
+# FUNCTIONS AND VARIABLES FOR FAKE ONLINE DATA (FOR TESTING PURPOSES)
 ####################################################################
 predicted_times = []
 predicted_labels = []

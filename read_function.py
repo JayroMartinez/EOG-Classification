@@ -1,3 +1,6 @@
+# HERE WE READ DATA FROM OFFLINE AND ONLINE FILES
+# AUTHOR: Jayro Martinez Cervero
+
 def read_file(file_name):
 	"""
 # FUNCTION:	 	read_file(file_name)
@@ -5,6 +8,7 @@ def read_file(file_name):
 # OUTPUT: 		Vertical & Horizontal components of the signal. Also a list with
 #				the label corresponding to each timepoint
 # DESCRIPTION:	Reads the data from a .txt file and returns it
+# AUTHOR: 		Jayro Martinez Cervero
 	"""
 # Open the file
 	file = open(file_name, 'r')
@@ -48,6 +52,7 @@ def read_online_file(file_name):
 # OUTPUT: 		Vertical & Horizontal components of the signal. Also a list with
 #				the label corresponding to each timepoint
 # DESCRIPTION:	Reads the data from a .txt file and returns it
+# AUTHOR: 		Jayro Martinez Cervero
 	"""
 # Open the file
 	print(file_name)

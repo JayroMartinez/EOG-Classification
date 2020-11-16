@@ -1,3 +1,6 @@
+# HERE WE PERFORM THE CALCULATIONS FOR THE OFFLINE PARADIGM
+# AUTHOR: Jayro Martinez Cervero
+
 from sklearn.model_selection import cross_val_score
 from sklearn.svm import SVC
 import numpy as np
@@ -10,6 +13,7 @@ def classification(feat, trial_lab):
 # INPUT: 		Matrix with the features, labels for the trials
 # OUTPUT: 		Accuracy of the model
 # DESCRIPTION:	Creates an SVM model using train data and gives the test data scores
+# AUTHOR: 		Jayro Martinez Cervero
 	"""
 
 # Train model and predict labels
